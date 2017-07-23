@@ -20,3 +20,10 @@ Example: `pdfcut -o report_part_1.pdf -f1 -t3 full_report.pdf`
 
 This will take pages 1, 2, and 3 of `full_report.pdf` and output them to
 `report_part_1.pdf`
+
+
+Why the name
+============
+This project started (and, well, for now still is) just pdfcat and pdfcut, and I
+merged these together and almost named it `pdfcatcut`, but then I realized
+`pdfcactus` sounds way cooler!
