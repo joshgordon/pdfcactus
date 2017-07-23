@@ -1,6 +1,12 @@
 # pdfcactus
 A suite of tools that is a wrapper around ghostscript to manipulate PDF files
 
+Requirements
+============
+
+argparse (available from pip) and ghostscript are the only two external
+dependencies.
+
 pdfcat
 ------
 
