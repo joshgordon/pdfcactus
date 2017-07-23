@@ -1,0 +1,29 @@
+#!/usr/bin/env python2
+
+"""pdfcut
+Usage:
+  pdfcut -f <startPageNum> -t <endPageNum> -o <outputFile> <inputfile>
+  pdfcut (-h|--help)
+  pdfcut --version
+
+Options:
+  -h --help              Show this screen.
+  --version              Show version.
+  -f --from NUM          start page number (inclusive)
+  -t --to NUM            end page number (inclusive)
+  -o --output FILENAME   output filename
+"""
+
+from docopt import docopt
+import os
+
+if __name__ == "__main__":
+    arguments = docopt(__doc__, version='pdfcut v0.1')
+    print arguments
+
+    command='gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER \
+-dFirstPage="{--from}" -dLastPage="{--to}" -sOutputFile="{--output}" \
+"{<inputfile>}"'.format(**arguments)
+    print command
+
+    os.system(command)

@@ -1,0 +1,27 @@
+#!/usr/bin/env python2
+
+"""pdfcat
+Usage:
+  pdfcat -o <outputFile> (INFILES...)
+  pdfcat (-h|--help)
+  pdfcat --version
+
+Options:
+  -h --help              Show this screen.
+  --version              Show version.
+  -f --from NUM          start page number (inclusive)
+  -t --to NUM            end page number (inclusive)
+  -o --output FILENAME   output filename
+"""
+
+from docopt import docopt
+import os
+
+if __name__ == "__main__":
+    arguments = docopt(__doc__, version='pdfcat v0.1')
+
+    command='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="{--output}" '.format(**arguments)
+    command +=" ".join(['"' + filename + '"' for filename in arguments['INFILES']])
+
+
+    os.system(command)
